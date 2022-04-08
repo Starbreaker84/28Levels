@@ -1,6 +1,4 @@
-package exercises;
-
-public class Level2 {
+public class Level1 {
     public static int odometer(int [] oksana){
         int pastHours = 0;
         int distance = 0;
