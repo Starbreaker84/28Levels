@@ -15,11 +15,6 @@ public class Level1 {
                 for (int i = 0; i < L * 2; i++) {
                     if (i % 2 != 0) battlefield[battalion[i - 1] - 1][battalion[i] - 1] = 1;
                 }
-                for (int i = 0; i < N; i++) {
-                    for (int j = 0; j < M; j++) {
-                        if (battlefield[i][j] == 1) currentState++;
-                    }
-                }
             }
             else {
                 currentState = 0;
@@ -40,10 +35,10 @@ public class Level1 {
                         }
                     }
                 }
-                for (int i = 0; i < N; i++) {
-                    for (int j = 0; j < M; j++) {
-                        if (battlefield[i][j] == 1) currentState++;
-                    }
+            }
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < M; j++) {
+                    if (battlefield[i][j] == 1) currentState++;
                 }
             }
         }
