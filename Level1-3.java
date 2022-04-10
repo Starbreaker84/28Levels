@@ -1,4 +1,4 @@
-public class Level3 {
+public class Level1 {
     public static int ConquestCampaign(int N, int M, int L, int [] battalion) {
         int days = 0;
         int [][] battlefield = new int[N][M];
