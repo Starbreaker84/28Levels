@@ -24,5 +24,12 @@ class Task6Test {
         int N = 3;
         assertEquals("2", Task6.PatternUnlock(N, hits), "TestError is ok!");
     }
+    
+    @Test
+    void testEquals () {
+        int [] hits = {2, 1, 9};
+        int N = 3;
+        assertTrue(Task6.PatternUnlock(N, hits).equals("2"));
+    }
 
 }
