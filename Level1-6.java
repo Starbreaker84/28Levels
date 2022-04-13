@@ -1,8 +1,9 @@
-public class Level1 {
+package exercises;
+
+public class Task6 {
     public static String PatternUnlock(int N, int [] hits) {
         String code = "";
         if (N == 1) {
-            code = Integer.toString(hits[0]);
             return code;
         }
         double line = 0;
@@ -19,6 +20,5 @@ public class Level1 {
             }
         }
         return code;
-
     }
 }
