@@ -1,6 +1,4 @@
-package exercises;
-
-public class Task6 {
+public class Level1 {
     public static String PatternUnlock(int N, int [] hits) {
         String code = "";
         if (N == 1) {
