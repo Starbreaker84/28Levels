@@ -1,3 +1,5 @@
+package exercises;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,12 +21,19 @@ class Task6Test {
     }
 
     @Test
+    void testMainAdded() {
+        int [] hits = { 9, 2, 4, 5, 1 ,8 ,3};
+        int N = 7;
+        assertEquals("8717", Task6.PatternUnlock(N, hits), "TestMainAdded is ok!");
+    }
+
+    @Test
     void testError() {
         int [] hits = {2, 1, 9};
         int N = 3;
         assertEquals("2", Task6.PatternUnlock(N, hits), "TestError is ok!");
     }
-    
+
     @Test
     void testEquals () {
         int [] hits = {2, 1, 9};

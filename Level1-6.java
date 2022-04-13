@@ -11,9 +11,9 @@ public class Level1 {
                 line += Math.sqrt(2);
             } else line += 1;
         }
-        String str = String.format("%.5f", line);
+        String str = Integer.toString((int) Math.round(line * 100000));
         for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) != '0' && str.charAt(i) != '.') {
+            if (str.charAt(i) != '0') {
                 code = code + str.charAt(i);
             }
         }
