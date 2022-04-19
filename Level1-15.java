@@ -5,7 +5,6 @@ public class Level1 {
         String [] array2 = S2.split(" ");
         int counter = 0;
         int row;
-        boolean flag = false;
         for (int i = 0; i < H1; i++) {
             if (H2 > H1 - i) break;
             for (int id = 0; id < W1; id++) {
@@ -13,13 +12,10 @@ public class Level1 {
                 if (position != -1) {
                     id = position;
                     counter++;
-                    flag = true;
                     row = i + 1;
                     for (int j = 1; j < H2; j++) {
-                        if (row == H1) break;
                         int nextPosition = array1[row].indexOf(array2[j], id);
                         if (nextPosition != position) {
-                            flag = false;
                             counter = 0;
                             break;
                         }
@@ -27,9 +23,9 @@ public class Level1 {
                         counter++;
                     }
                 }
-                if (counter == H2) return flag;
+                if (counter == H2) return true;
             }
         }
-        return flag;
+        return false;
     }
 }
