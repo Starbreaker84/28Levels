@@ -7,21 +7,27 @@ public class Level1 {
         int row;
         boolean flag = false;
         for (int i = 0; i < H1; i++) {
-            int position = array1[i].indexOf(array2[0]);
-            if (position != -1) {
-                counter++;
-                flag = true;
-                row = i + 1;
-                for (int j = 1; j < H2; j++) {
-                    int nextPosition = array1[row].indexOf(array2[j]);
-                    if (nextPosition != position) {
-                        flag = false;
-                        counter = 0;
-                        break;
-                    }
-                    row++;
+            if (i == H1 - 1 && H2 > 1) break;
+            for (int id = 0; id < W1; id++) {
+                int position = array1[i].indexOf(array2[0], id);
+                if (position != -1) {
+                    id = position;
                     counter++;
+                    flag = true;
+                    row = i + 1;
+                    for (int j = 1; j < H2; j++) {
+                        if (row == H1) break;
+                        int nextPosition = array1[row].indexOf(array2[j]);
+                        if (nextPosition != position) {
+                            flag = false;
+                            counter = 0;
+                            break;
+                        }
+                        row++;
+                        counter++;
+                    }
                 }
+                if (counter == H2) break;
             }
             if (counter == H2) break;
         }
