@@ -27,9 +27,8 @@ public class Level1 {
                         counter++;
                     }
                 }
-                if (counter == H2) break;
+                if (counter == H2) return flag;
             }
-            if (counter == H2) break;
         }
         return flag;
     }
