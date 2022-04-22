@@ -42,6 +42,7 @@ public class Level1 {
                 str2 = items[j].split(" ");
                 if (str1[0].equals(str2[0])) {
                     int sum = Integer.parseInt(str1[1]) + Integer.parseInt(str2[1]);
+                    str1[1] = Integer.toString(sum);
                     items[i] = str1[0] + " " + sum;
                     items[j] = "";
                 }
