@@ -72,7 +72,7 @@ public class Level1 {
                 return string;
             }
             int position = Integer.parseInt(str[1]);
-            if (position > string.length() || position < 0) {
+            if (position >= string.length() || position < 0) {
                 return "";
             }
             return String.valueOf(string.charAt(position));
