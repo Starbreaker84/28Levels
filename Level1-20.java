@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Level1 {
     static String string = "";
@@ -25,11 +25,11 @@ public class Level1 {
                 memory.add(string);
                 rollback = 0;
             }
-            String commandString = "";
+            StringBuilder bld = new StringBuilder();
             for (int i = 2; i < command.length(); i++) {
-                commandString += command.charAt(i);
+                bld.append(command.charAt(i));
             }
-            string += commandString;
+            string += bld.toString();
 
             memory.add(string);
             undoPosition = memory.size() - 1;
@@ -51,13 +51,13 @@ public class Level1 {
             int delete = Integer.parseInt(str[1]);
             if (delete >= string.length()) {
                 string = "";
-            } else {
-                String newString = "";
-                for (int i = 0; i < string.length() - delete; i++) {
-                    newString += string.charAt(i);
-                }
-                string = newString;
+                return string;
             }
+            StringBuilder bld = new StringBuilder();
+            for (int i = 0; i < string.length() - delete; i++) {
+                bld.append(string.charAt(i));
+            }
+            string = bld.toString();
 
             memory.add(string);
             undoPosition = memory.size() - 1;
@@ -81,18 +81,16 @@ public class Level1 {
         //Command 4
         if (commandNumber == 4 && command.length() == 1) {
             rollback = 1;
-            if (memory.size() > 0 && undoPosition > 0) {
+            if (!memory.isEmpty() && undoPosition > 0) {
                 undoPosition--;
                 string = memory.get(undoPosition);
             }
         }
 
         //Command 5
-        if (commandNumber == 5 && command.length() == 1) {
-            if (undoPosition < memory.size() - 1) {
+        if ((commandNumber == 5 && command.length() == 1) && (undoPosition < memory.size() - 1)){
                 undoPosition++;
                 string = memory.get(undoPosition);
-            }
         }
 
         return string;
