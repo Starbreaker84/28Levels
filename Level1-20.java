@@ -51,14 +51,13 @@ public class Level1 {
             int delete = Integer.parseInt(str[1]);
             if (delete >= string.length()) {
                 string = "";
-                return string;
+            } else {
+                StringBuilder bld = new StringBuilder();
+                for (int i = 0; i < string.length() - delete; i++) {
+                    bld.append(string.charAt(i));
+                }
+                string = bld.toString();
             }
-            StringBuilder bld = new StringBuilder();
-            for (int i = 0; i < string.length() - delete; i++) {
-                bld.append(string.charAt(i));
-            }
-            string = bld.toString();
-
             memory.add(string);
             undoPosition = memory.size() - 1;
         }
@@ -72,7 +71,7 @@ public class Level1 {
                 return string;
             }
             int position = Integer.parseInt(str[1]);
-            if (position >= string.length() || position < 0) {
+            if (position > string.length() || position < 0) {
                 return "";
             }
             return String.valueOf(string.charAt(position));
