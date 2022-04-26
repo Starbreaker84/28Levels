@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Task22 {
+public class Level1 {
     private static int howManyTimes(int index, String s) {
         int counter = 0;
         for (int i = 0; i < s.length(); i++) {
