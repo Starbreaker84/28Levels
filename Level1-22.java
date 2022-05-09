@@ -1,6 +1,10 @@
 import java.util.*;
 
+<<<<<<< HEAD
 public class Task22 {
+=======
+public class Level1 {
+>>>>>>> 6f1c3dfaf3236651476a5e7bca7ba3c96a9836b0
     private static int howManyTimes(int index, String s) {
         int counter = 0;
         for (int i = 0; i < s.length(); i++) {
