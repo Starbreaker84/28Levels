@@ -1,22 +1,17 @@
-public class Level1 {
+public class Task6 {
     public static String PatternUnlock(int N, int [] hits) {
-        String code = "";
+        String unlockCode = "";
         if (N == 1) {
-            return code;
+            return unlockCode;
         }
-        double line = 0;
+        double lengthOfUnlockLine = 0;
         for (int i = 1; i < N; i++) {
-            int checker = hits[i] + hits[i - 1];
-            if ((checker == 6 || checker == 8) || ((checker == 9 || checker == 11) && (hits[i] >= 7 || hits[i - 1] >= 7))) {
-                line += Math.sqrt(2);
-            } else line += 1;
+            int sumOfBesideDigits = hits[i] + hits[i - 1];
+            if ((sumOfBesideDigits == 6 || sumOfBesideDigits == 8) || ((sumOfBesideDigits == 9 || sumOfBesideDigits == 11) && (hits[i] >= 7 || hits[i - 1] >= 7))) {
+                lengthOfUnlockLine += Math.sqrt(2);
+            } else lengthOfUnlockLine += 1;
         }
-        String str = Integer.toString((int) Math.round(line * 100000));
-        for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) != '0') {
-                code = code + str.charAt(i);
-            }
-        }
-        return code;
+        unlockCode = Integer.toString((int) Math.round(lengthOfUnlockLine * 100000)).replace("0", "");
+        return unlockCode;
     }
 }

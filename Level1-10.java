@@ -1,7 +1,7 @@
-public class Level1 {
+public class Task10 {
     public static int PrintingCosts(String Line) {
-        String keys = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
-        int [] values = {
+        String characterTable = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+        int [] characterPrintingCosts = {
                 0,  9,  6, 24, 29, 22,
                24,  3, 12, 12, 17, 13,
                 7,  7,  4, 10, 22, 19,
@@ -19,19 +19,11 @@ public class Level1 {
                17, 17, 13, 19, 13, 24,
                19, 18, 12, 18,  9
         };
-        int printCost = 0;
-        boolean notInCase;
+        int totalPrintingCost = 0;
         for (int i = 0; i < Line.length(); i++) {
-            notInCase = true;
-            for (int j = 0; j < keys.length(); j++) {
-                if (Line.charAt(i) == keys.charAt(j)) {
-                    printCost += values[j];
-                    notInCase = false;
-                    break;
-                }
-            }
-            if (notInCase) printCost += 23;
+            int indexOfCharacterTable = characterTable.indexOf(Line.charAt(i));
+            totalPrintingCost += indexOfCharacterTable < 0 ? 23 : characterPrintingCosts[indexOfCharacterTable];
         }
-        return printCost;
+        return totalPrintingCost;
     }
 }

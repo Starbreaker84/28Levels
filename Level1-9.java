@@ -1,62 +1,62 @@
-public class Level1 {
-    private static String encoding(String s) {
-        s = s.replace(" ", "");
-        int sLen = s.length();
-        int rows = (int) Math.sqrt(sLen);
-        int cols = rows + 1;
-        while (rows * cols < sLen) {
-            rows++;
+public class Task9 {
+    private static String encoding(String stringForEncode) {
+        stringForEncode = stringForEncode.replace(" ", "");
+        int stringForEncodeLength = stringForEncode.length();
+        int numberOfRowsInMatrix = (int) Math.sqrt(stringForEncodeLength);
+        int numberOfColumnsInMatrix = numberOfRowsInMatrix + 1;
+        while (numberOfRowsInMatrix * numberOfColumnsInMatrix < stringForEncodeLength) {
+            numberOfRowsInMatrix++;
         }
-        char [][] matrix = new char[rows][cols];
-        int chars = 0;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++){
-                if (chars >= sLen) {
+        char [][] matrix = new char[numberOfRowsInMatrix][numberOfColumnsInMatrix];
+        int indexOfCharInInputString = 0;
+        for (int i = 0; i < numberOfRowsInMatrix; i++) {
+            for (int j = 0; j < numberOfColumnsInMatrix; j++){
+                if (indexOfCharInInputString >= stringForEncodeLength) {
                     matrix[i][j] = ' ';
-                } else matrix[i][j] = s.charAt(chars);
-                chars++;
+                } else matrix[i][j] = stringForEncode.charAt(indexOfCharInInputString);
+                indexOfCharInInputString++;
             }
         }
         StringBuilder sBuilder = new StringBuilder();
-        for (int j = 0; j < cols; j++) {
-            for (int i = 0; i < rows; i++){
+        for (int j = 0; j < numberOfColumnsInMatrix; j++) {
+            for (int i = 0; i < numberOfRowsInMatrix; i++){
                 if (matrix[i][j] != ' ') {
                     sBuilder.append(matrix[i][j]);
                 }
             }
             sBuilder.append(" ");
         }
-        s = sBuilder.toString();
-        return s.trim();
+        String encodedString = sBuilder.toString();
+        return encodedString.trim();
     }
-    private static String decoding(String s){
-        String[] words = s.split(" ");
-        int sLen =s.replace(" ", "").length();
-        int rows = (int) Math.sqrt(sLen);
-        int cols = rows + 1;
-        while (rows * cols < sLen) {
-            rows++;
+    private static String decoding(String stringForDecode){
+        String[] wordsFromStringForDecode = stringForDecode.split(" ");
+        int stringForDecodeLength = stringForDecode.replace(" ", "").length();
+        int numberOfRowsInMatrix = (int) Math.sqrt(stringForDecodeLength);
+        int numberOfColumnsInMatrix = numberOfRowsInMatrix + 1;
+        while (numberOfRowsInMatrix * numberOfColumnsInMatrix < stringForDecodeLength) {
+            numberOfRowsInMatrix++;
         }
-        char [][] matrix = new char[rows][cols];
-        for (int j = 0; j < cols; j++) {
-            for (int i = 0; i < rows; i++){
-                if (i >= words[j].length()) {
+        char [][] matrix = new char[numberOfRowsInMatrix][numberOfColumnsInMatrix];
+        for (int j = 0; j < numberOfColumnsInMatrix; j++) {
+            for (int i = 0; i < numberOfRowsInMatrix; i++){
+                if (i >= wordsFromStringForDecode[j].length()) {
                     matrix[i][j] = ' ';
                 } else {
-                    matrix[i][j] = words[j].charAt(i);
+                    matrix[i][j] = wordsFromStringForDecode[j].charAt(i);
                 }
             }
         }
         StringBuilder sBuilder = new StringBuilder();
-        for (int i = 0; i < cols; i++) {
-            for (int j = 0; j < rows; j++){
+        for (int i = 0; i < numberOfColumnsInMatrix; i++) {
+            for (int j = 0; j < numberOfRowsInMatrix; j++){
                 if (matrix[i][j] != ' ') {
                     sBuilder.append(matrix[i][j]);
                 }
             }
         }
-        s = sBuilder.toString();
-        return s;
+        String decodedString = sBuilder.toString();
+        return decodedString;
     }
 
     public static String TheRabbitsFoot(String s, boolean encode) {
